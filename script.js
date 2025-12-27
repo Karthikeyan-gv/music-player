@@ -45,7 +45,7 @@ progress.oninput = () => {
 }
 
 volume.oninput = () => {
-  audio.volume = Math.max(0, Math.min(1, parseFloat(volume.value)));
+  audio.volume = parseFloat(volume.value);
 };
 
 //volume.oninput = () => audio.volume = volume.value;
@@ -69,3 +69,4 @@ audioFile.onchange = () => {
     author.textContent = "Unknown artist";
 
 }
+
