@@ -44,7 +44,11 @@ progress.oninput = () => {
     audio.currentTime = (progress.value / 100) * audio.duration;
 }
 
-volume.oninput = () => audio.volume = volume.value;
+volume.oninput = () => {
+  audio.volume = Math.max(0, Math.min(1, parseFloat(volume.value)));
+};
+
+//volume.oninput = () => audio.volume = volume.value;
 
 audioFile.onchange = () => {
 
@@ -63,4 +67,5 @@ audioFile.onchange = () => {
     image.src = './assets/channels4_profile.jpg';
     title.textContent = file.name.replace(/\.mp3$/i, '');
     author.textContent = "Unknown artist";
+
 }
